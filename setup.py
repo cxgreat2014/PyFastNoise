@@ -17,11 +17,13 @@ __version__ = "0.0.1"
 #   reproducible builds (https://github.com/pybind/python_example/pull/53)
 
 ext_modules = [
-    Pybind11Extension("fast_noise",
+    Pybind11Extension(
+        "fast_noise",
         ["src/main.cpp"],
+        include_dirs=["src"],
         # Example: passing in the version to the compiled code
-        define_macros = [('VERSION_INFO', __version__)],
-        ),
+        define_macros=[('VERSION_INFO', __version__)],
+    ),
 ]
 
 # noinspection PyTypeChecker
